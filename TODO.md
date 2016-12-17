@@ -1,0 +1,6 @@
+-- Add to Git
+-- Settle on a application structure
+    -- Pass state through props, or import
+    -- Actions throgh class methods, or seperat thing
+-- Settle on a styling 
+    -- React Materialize is setup, and I know it quite well...

@@ -1,17 +1,26 @@
 import { observable } from 'mobx';
+import {auth} from './api/firebase'
+
+
+
 
 class AppState {
-  @observable timer = 0;
-
+  @observable loggedIn = false
   constructor() {
-    setInterval(() => {
-      this.timer += 1;
-    }, 1000);
+    auth.onAuthStateChanged((user)=>{
+      if(user){
+        this.loggedIn = true
+      } else {
+        this.loggedIn = false
+      }
+    })
   }
-
-  resetTimer() {
-    this.timer = 0;
+  login(password){
+    auth.signInWithEmailAndPassword("justus.karlsson@hotmail.se", password)
   }
 }
 
-export default AppState;
+
+
+
+export default new AppState ()
